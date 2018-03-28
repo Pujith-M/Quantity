@@ -1,7 +1,7 @@
 package com.company;
 
 enum Units {
-    INCH(1), FEET(12), YARD(36);
+    INCH(1), FEET(12), YARD(36), GRAM(1),POUND(453), KILOGRAM(1000);
 
     private final double conversionFactor;
 

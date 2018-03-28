@@ -2,10 +2,10 @@ package com.company;
 
 import org.junit.Test;
 
-import static com.company.Length.*;
+import static com.company.Quantity.*;
 import static org.junit.Assert.*;
 
-public class LengthTest {
+public class QuantityTest {
     @Test
     public void equalWhenTwelveInchAndTwelveInch() {
         assertEquals(inch(12), inch(12));
@@ -33,6 +33,26 @@ public class LengthTest {
     @Test
     public void addingFourInchAndOneYard(){
         assertEquals(inch(40), inch(4).add(yard(1)));
+    }
+
+    @Test
+    public void addingTwentyFourInchAndOneFootExpectingOneYard(){
+        assertEquals(yard(1), inch(24).add(feet(1)));
+    }
+
+    @Test
+    public void equalWhenThousandGramsAndOneKilogram(){
+        assertEquals(gram(1000), kilogram(1));
+    }
+
+    @Test
+    public void addingOnePoundAndFiveHundredFortySevenGramsExpectingOneKilogram(){
+        assertEquals(kilogram(1), pound(1).add(gram(547)));
+    }
+
+    @Test
+    public void notEqualWhenOneGramsAndOneInch(){
+        assertNotEquals(gram(1), inch(1));
     }
 
 
