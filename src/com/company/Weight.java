@@ -6,6 +6,7 @@ class Weight extends Quantity{
     }
 
     public Weight add(Weight that){
-        return new Weight(super.add(that), this.unit);
+        Quantity thisPlusThat = super.add(that);
+        return new Weight(thisPlusThat.magnitude, thisPlusThat.unit);
     }
 }

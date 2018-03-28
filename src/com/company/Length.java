@@ -6,6 +6,7 @@ class Length extends Quantity{
     }
 
     public Length add(Length that){
-        return new Length(super.add(that), this.unit);
+        Quantity thisPlusThat = super.add(that);
+        return new Length(thisPlusThat.magnitude, thisPlusThat.unit);
     }
 }

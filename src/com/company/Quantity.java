@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Objects;
 
-//Understands conversions
+//
 public class Quantity {
 
     protected double magnitude;
@@ -39,8 +39,12 @@ public class Quantity {
 
     @Override
     public boolean equals(Object that) {
-        if (this == that) return true;
-        if (that == null || getClass() != that.getClass()) return false;
+        if (this == that) {
+            return true;
+        }
+        if (that == null || getClass() != that.getClass()) {
+            return false;
+        }
         return this.compare((Quantity) that);
     }
 
@@ -62,10 +66,9 @@ public class Quantity {
         return Objects.hash(unit, magnitude);
     }
 
-    protected double add(Quantity that) {
+    protected Quantity add(Quantity that) {
         double thatConvertedValue = that.unit.convertToOtherUnit(this.unit, that.magnitude);
-//        return new Quantity(this.magnitude + thatConvertedValue, this.unit);
-        return this.magnitude + thatConvertedValue;
+        return new Quantity(this.magnitude + thatConvertedValue, this.unit);
     }
 }
 
